@@ -5,11 +5,16 @@ find_package(Qt6 6.11 REQUIRED COMPONENTS Core Widgets)
 
 qt_standard_project_setup()
 
+include_directories(include/)
+
 qt_add_executable(Emerald
     WIN32 MACOSX_BUNDLE
+    ${SOURCE_FILES}
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
+    src/Presentation/mainwindow.cpp
+    include/Presentation/mainwindow.h
+    include/Core/markdowndocument.h
+    src/Core/markdowndocument.cpp
 )
 
 target_link_libraries(Emerald
