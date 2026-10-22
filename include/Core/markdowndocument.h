@@ -18,6 +18,14 @@ public:
     ~MarkdownDocument();
 
     void    setMarkdownText(const QString& str);
-    QString markdownText();
+    QString markdownText() const;
     void    clear();
+
+    QTextDocument* document() const;
+
+    void setHtml(const QString&) = delete;
+    QString toHtml() = delete;
+
+    void setPlainText(const QString&) = delete;
+    QString toPlainText() = delete;
 };

@@ -36,10 +36,15 @@ void MarkdownDocument::setMarkdownText(const QString& str) {
     QTextDocument::setMarkdown(str, MarkdownFeature::MarkdownDialectGitHub);
 }
 
-QString MarkdownDocument::markdownText() {
+QString MarkdownDocument::markdownText() const {
     return QTextDocument::toMarkdown(MarkdownFeature::MarkdownDialectGitHub);
 }
 
 void MarkdownDocument::clear() {
     this->setMarkdownText("");
+}
+
+// I dont know it works or not
+QTextDocument* MarkdownDocument::document() const {
+    return static_cast<QTextDocument*>(this->parent());
 }
