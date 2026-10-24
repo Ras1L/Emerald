@@ -47,9 +47,12 @@ void MarkdownDocument::clear() {
     this->setMarkdownText("");
 }
 
-// I dont know it works or not
-QTextDocument* MarkdownDocument::document() const {
-    return static_cast<QTextDocument*>(this->parent());
+QTextDocument* MarkdownDocument::document() {
+    return this;
+}
+
+const QTextDocument* MarkdownDocument::document() const {
+    return this;
 }
 
 } // namespace Core
