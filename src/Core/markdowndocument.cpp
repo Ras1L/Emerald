@@ -43,16 +43,4 @@ QString MarkdownDocument::markdownText() const {
     return QTextDocument::toMarkdown(MarkdownFeature::MarkdownDialectGitHub);
 }
 
-void MarkdownDocument::clear() {
-    this->setMarkdownText("");
-}
-
-QTextDocument* MarkdownDocument::document() {
-    return this;
-}
-
-const QTextDocument* MarkdownDocument::document() const {
-    return this;
-}
-
 } // namespace Core

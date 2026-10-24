@@ -22,16 +22,9 @@ public:
 
     void    setMarkdownText(const QString& str);
     QString markdownText() const;
-    void    clear();
-
-    QTextDocument* document();
-    const QTextDocument* document() const;
 
     void setHtml(const QString&) = delete;
     QString toHtml() = delete;
-
-    void setPlainText(const QString&) = delete;
-    QString toPlainText() = delete;
 };
 
 } // namespace Core

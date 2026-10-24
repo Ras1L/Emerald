@@ -1,4 +1,4 @@
-#include "Presentation/mainwindow.h"
+#include "Application/markdowneditorsession.h"
 
 #include <QApplication>
 
@@ -6,9 +6,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    Presentation::MainWindow w;
-
-    w.show();
+    Application::MarkdownEditorSession session;
+    if (!session.createSession()) {
+        return -1;
+    }
+    session.showSession();
 
     return QApplication::exec();
 }

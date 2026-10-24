@@ -9,14 +9,13 @@ include_directories(include/)
 
 qt_add_executable(Emerald
     WIN32 MACOSX_BUNDLE
-    ${SOURCE_FILES}
     main.cpp
-    src/Presentation/mainwindow.cpp
-    include/Presentation/mainwindow.h
+    src/Application/markdowneditorsession.cpp
     src/Core/markdowndocument.cpp
+    src/Presentation/mainwindow.cpp
+    include/Application/markdowneditorsession.h
     include/Core/markdowndocument.h
-    src/Presentation/markdowndocumentlayout.cpp
-    include/Presentation/markdowndocumentlayout.h
+    include/Presentation/mainwindow.h
 )
 
 target_link_libraries(Emerald
