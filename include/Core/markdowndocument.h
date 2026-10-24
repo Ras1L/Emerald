@@ -2,6 +2,9 @@
 
 #include <QTextDocument>
 
+namespace Core
+{
+
 class MarkdownDocument final : public QTextDocument
 {
 Q_OBJECT
@@ -29,3 +32,5 @@ public:
     void setPlainText(const QString&) = delete;
     QString toPlainText() = delete;
 };
+
+} // namespace Core

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.19)
 project(Emerald LANGUAGES CXX)
 
-find_package(Qt6 6.11 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt6 6.11 REQUIRED COMPONENTS Core Gui Widgets)
 
 qt_standard_project_setup()
 
@@ -13,13 +13,16 @@ qt_add_executable(Emerald
     main.cpp
     src/Presentation/mainwindow.cpp
     include/Presentation/mainwindow.h
-    include/Core/markdowndocument.h
     src/Core/markdowndocument.cpp
+    include/Core/markdowndocument.h
+    src/Presentation/markdowndocumentlayout.cpp
+    include/Presentation/markdowndocumentlayout.h
 )
 
 target_link_libraries(Emerald
     PRIVATE
         Qt::Core
+        Qt::Gui
         Qt::Widgets
 )
 

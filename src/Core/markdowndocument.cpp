@@ -1,5 +1,8 @@
 #include "Core/markdowndocument.h"
 
+namespace Core
+{
+
 MarkdownDocument::MarkdownDocument(QObject* pobj) : QTextDocument(pobj)
 {
     QTextDocument::setMarkdown("", MarkdownFeature::MarkdownDialectGitHub);
@@ -48,3 +51,5 @@ void MarkdownDocument::clear() {
 QTextDocument* MarkdownDocument::document() const {
     return static_cast<QTextDocument*>(this->parent());
 }
+
+} // namespace Core
