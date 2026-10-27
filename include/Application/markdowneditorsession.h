@@ -18,8 +18,8 @@ public:
     void showSession();
 
 private:
-	Core::MarkdownDocument*   m_markdownDocument = nullptr;
-	Presentation::MainWindow* m_mainWindow = nullptr;
+	Core::MarkdownDocument*       m_markdownDocument = nullptr;
+	Presentation::MainWindow*	  m_mainWindow 		 = nullptr;
 };
 
 } // namespace Application

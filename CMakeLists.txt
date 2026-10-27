@@ -12,9 +12,11 @@ qt_add_executable(Emerald
     main.cpp
     src/Application/markdowneditorsession.cpp
     src/Core/markdowndocument.cpp
+    src/Presentation/markdowneditor.cpp
     src/Presentation/mainwindow.cpp
     include/Application/markdowneditorsession.h
     include/Core/markdowndocument.h
+    include/Presentation/markdowneditor.h
     include/Presentation/mainwindow.h
 )
 

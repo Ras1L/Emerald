@@ -1,8 +1,8 @@
 #include "Application/markdowneditorsession.h"
 
 #include "Core/markdowndocument.h"
+#include "Presentation/markdowneditor.h"
 #include "Presentation/mainwindow.h"
-#include <QTextEdit>
 
 namespace Application {
 
@@ -18,8 +18,8 @@ void MarkdownEditorSession::showSession()
 {
 	m_mainWindow = new Presentation::MainWindow();
 
-    auto* pText = new QTextEdit(m_mainWindow);
-    pText->setDocument(m_markdownDocument);
+	auto* markdownEditor = new Presentation::MarkdownEditor(m_mainWindow);
+	markdownEditor->setDocument(m_markdownDocument);
 
     m_mainWindow->show();
 }

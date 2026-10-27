@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
 
     Application::MarkdownEditorSession session;
     if (!session.createSession()) {
@@ -12,5 +12,5 @@ int main(int argc, char *argv[])
     }
     session.showSession();
 
-    return QApplication::exec();
+    return app.exec();
 }
