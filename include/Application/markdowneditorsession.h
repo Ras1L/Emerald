@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QObject>
+#include <memory>
 
 namespace Core         { class MarkdownDocument; }
 namespace Presentation { class MainWindow; }
@@ -13,13 +14,14 @@ class MarkdownEditorSession : public QObject {
 
 public:
 	MarkdownEditorSession();
+	~MarkdownEditorSession() override;
 
 	bool createSession();
     void showSession();
 
 private:
-	Core::MarkdownDocument*       m_markdownDocument = nullptr;
-	Presentation::MainWindow*	  m_mainWindow 		 = nullptr;
+	Core::MarkdownDocument*   m_markdownDocument = nullptr;
+	Presentation::MainWindow* m_mainWindow 	     = nullptr;
 };
 
 } // namespace Application

@@ -12,6 +12,13 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
+
+private:
+    /** Creates the application's top-level menu. */
+    void createMenuBar();
+
+    /** Creates the standard editing toolbar. */
+    void createToolBar();
 };
 
 } // namespace Presentation
