@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.19)
 project(Emerald LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 find_package(Qt6 6.11 REQUIRED COMPONENTS Core Gui Widgets)
 
 qt_standard_project_setup()
