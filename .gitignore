@@ -85,3 +85,5 @@ CMakeLists.txt.user*
 
 # Other
 .vscode/
+.continue/
+.cache/
