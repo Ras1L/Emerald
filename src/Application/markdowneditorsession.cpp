@@ -2,17 +2,16 @@
 
 #include "Core/markdowndocument.h"
 #include "Infrastructure/filesystemmodel.h"
-#include "Presentation/actionpanel.h"
-#include "Presentation/filesystemview.h"
+#include "Presentation/editorworkspace.h"
 #include "Presentation/markdowneditor.h"
 #include "Presentation/mainwindow.h"
+#include "Presentation/navigationworkspace.h"
 
 #include <QDir>
-#include <QLineEdit>
 #include <QSplitter>
-#include <QVBoxLayout>
 
-namespace Application {
+namespace Application
+{
 
 MarkdownEditorSession::MarkdownEditorSession() = default;
 
@@ -24,36 +23,21 @@ bool MarkdownEditorSession::createSession()
 	m_mainWindow = new Presentation::MainWindow();
 
 	auto* splitter = new QSplitter(Qt::Horizontal, m_mainWindow);
-	auto* fileSystemPanel = new QWidget(splitter);
-	auto* fileSystemLayout = new QVBoxLayout(fileSystemPanel);
-	auto* actionPanel = new Presentation::ActionPanel(fileSystemPanel);
+
 	auto* fileSystemModel = new Infrastructure::FileSystemModel(m_mainWindow);
-	auto* fileSystemView = new Presentation::FileSystemView(fileSystemPanel);
-
+	auto* navigationWorkspace =
+	    new Presentation::NavigationWorkspace(fileSystemModel, splitter);
 	const auto rootPath = QDir::currentPath();
-	fileSystemModel->setRootPath(rootPath);
-	fileSystemView->setModel(fileSystemModel);
-	fileSystemView->setRootIndex(fileSystemModel->index(rootPath));
-	fileSystemView->setColumnWidth(0, 200);
+	navigationWorkspace->setRootPath(rootPath);
 
-	connect(actionPanel->filterEdit(), &QLineEdit::textChanged,
-	        fileSystemModel, [fileSystemModel](const QString& text) {
-	            fileSystemModel->setNameFilters(text.isEmpty()
-                                                ? QStringList{"*"}
-                                                : QStringList{"*" + text + "*"});
-	            fileSystemModel->setNameFilterDisables(false);
-	        });
-	fileSystemLayout->setContentsMargins(0, 0, 0, 0);
-	fileSystemLayout->setSpacing(0);
-	fileSystemLayout->addWidget(actionPanel);
-	fileSystemLayout->addWidget(fileSystemView);
+	auto* editorWorkspace = new Presentation::EditorWorkspace(splitter);
+	editorWorkspace->editor()->setDocument(m_markdownDocument);
 
-	auto* markdownEditor = new Presentation::MarkdownEditor(splitter);
-	markdownEditor->setDocument(m_markdownDocument);
-	splitter->addWidget(fileSystemPanel);
-	splitter->addWidget(markdownEditor);
+	splitter->addWidget(navigationWorkspace);
+	splitter->addWidget(editorWorkspace);
 	splitter->setSizes({320, 1088});
 	m_mainWindow->setCentralWidget(splitter);
+	
 	return true;
 }
 

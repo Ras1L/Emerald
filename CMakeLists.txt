@@ -17,17 +17,21 @@ qt_add_executable(Emerald
     src/Application/markdowneditorsession.cpp
     src/Core/markdowndocument.cpp
     src/Infrastructure/filesystemmodel.cpp
+    src/Presentation/editorworkspace.cpp
     src/Presentation/markdowneditor.cpp
     src/Presentation/mainwindow.cpp
     src/Presentation/actionpanel.cpp
     src/Presentation/filesystemview.cpp
+    src/Presentation/navigationworkspace.cpp
     include/Application/markdowneditorsession.h
     include/Core/markdowndocument.h
     include/Infrastructure/filesystemmodel.h
+    include/Presentation/editorworkspace.h
     include/Presentation/markdowneditor.h
     include/Presentation/mainwindow.h
     include/Presentation/actionpanel.h
     include/Presentation/filesystemview.h
+    include/Presentation/navigationworkspace.h
 )
 
 target_link_libraries(Emerald
