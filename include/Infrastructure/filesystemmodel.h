@@ -12,6 +12,8 @@ class FileSystemModel final : public QFileSystemModel
 
 public:
     explicit FileSystemModel(QObject* parent = nullptr);
+
+    int columnCount(const QModelIndex& parent = {}) const override;
 };
 
 } // namespace Infrastructure

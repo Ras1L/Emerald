@@ -19,14 +19,14 @@ qt_add_executable(Emerald
     src/Infrastructure/filesystemmodel.cpp
     src/Presentation/markdowneditor.cpp
     src/Presentation/mainwindow.cpp
-    src/Presentation/filesystemtoolbar.cpp
+    src/Presentation/actionpanel.cpp
     src/Presentation/filesystemview.cpp
     include/Application/markdowneditorsession.h
     include/Core/markdowndocument.h
     include/Infrastructure/filesystemmodel.h
     include/Presentation/markdowneditor.h
     include/Presentation/mainwindow.h
-    include/Presentation/filesystemtoolbar.h
+    include/Presentation/actionpanel.h
     include/Presentation/filesystemview.h
 )
 
