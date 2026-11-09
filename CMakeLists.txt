@@ -15,7 +15,8 @@ qt_add_executable(Emerald
     WIN32 MACOSX_BUNDLE
     main.cpp
     src/Application/markdowneditorsession.cpp
-    src/Core/markdowndocument.cpp
+    src/Core/markdownpreviewdocument.cpp
+    src/Core/sourcetextdocument.cpp
     src/Infrastructure/filesystemmodel.cpp
     src/Presentation/editorworkspace.cpp
     src/Presentation/markdowneditor.cpp
@@ -24,7 +25,8 @@ qt_add_executable(Emerald
     src/Presentation/filesystemview.cpp
     src/Presentation/navigationworkspace.cpp
     include/Application/markdowneditorsession.h
-    include/Core/markdowndocument.h
+    include/Core/markdownpreviewdocument.h
+    include/Core/sourcetextdocument.h
     include/Infrastructure/filesystemmodel.h
     include/Presentation/editorworkspace.h
     include/Presentation/markdowneditor.h

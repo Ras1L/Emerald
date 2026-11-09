@@ -1,6 +1,6 @@
 #include "Application/markdowneditorsession.h"
 
-#include "Core/markdowndocument.h"
+#include "Core/sourcetextdocument.h"
 #include "Infrastructure/filesystemmodel.h"
 #include "Presentation/editorworkspace.h"
 #include "Presentation/markdowneditor.h"
@@ -19,7 +19,7 @@ MarkdownEditorSession::~MarkdownEditorSession() = default;
 
 bool MarkdownEditorSession::createSession()
 {
-	m_markdownDocument = new Core::MarkdownDocument("# Hello, Markdown Editor!", this);
+	m_sourceDocument = new Core::SourceTextDocument("# Hello, Markdown Editor!", this);
 	m_mainWindow = new Presentation::MainWindow();
 
 	auto* splitter = new QSplitter(Qt::Horizontal, m_mainWindow);
@@ -31,7 +31,7 @@ bool MarkdownEditorSession::createSession()
 	navigationWorkspace->setRootPath(rootPath);
 
 	auto* editorWorkspace = new Presentation::EditorWorkspace(splitter);
-	editorWorkspace->editor()->setDocument(m_markdownDocument);
+	editorWorkspace->editor()->setDocument(m_sourceDocument);
 
 	splitter->addWidget(navigationWorkspace);
 	splitter->addWidget(editorWorkspace);
