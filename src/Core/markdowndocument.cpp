@@ -13,18 +13,9 @@ MarkdownDocument::MarkdownDocument(const QString& str, QObject* pobj) : QTextDoc
     QTextDocument::setMarkdown(str, MarkdownFeature::MarkdownDialectGitHub);
 }
 
-MarkdownDocument::MarkdownDocument(const MarkdownDocument& mdoc) {
-    QTextDocument::setMarkdown(mdoc.toMarkdown(MarkdownFeature::MarkdownDialectGitHub), MarkdownFeature::MarkdownDialectGitHub);
-}
-
 MarkdownDocument::MarkdownDocument(MarkdownDocument&& mdoc) noexcept {
     QTextDocument::setMarkdown(mdoc.toMarkdown(MarkdownFeature::MarkdownDialectGitHub), MarkdownFeature::MarkdownDialectGitHub);
     mdoc.clear();
-}
-
-MarkdownDocument& MarkdownDocument::operator=(const MarkdownDocument& mdoc) {
-    QTextDocument::setMarkdown(mdoc.toMarkdown(MarkdownFeature::MarkdownDialectGitHub), MarkdownFeature::MarkdownDialectGitHub);
-    return *this;
 }
 
 MarkdownDocument& MarkdownDocument::operator=(MarkdownDocument&& mdoc) noexcept {

@@ -12,10 +12,10 @@ public:
     MarkdownDocument(QObject* pobj = nullptr);
     MarkdownDocument(const QString& markdown, QObject* pobj = nullptr);
 
-    MarkdownDocument(const MarkdownDocument& mdoc);
+    MarkdownDocument(const MarkdownDocument& mdoc) = delete;
     MarkdownDocument(MarkdownDocument&& mdoc) noexcept;
 
-    MarkdownDocument& operator=(const MarkdownDocument& mdoc);
+    MarkdownDocument& operator=(const MarkdownDocument& mdoc) = delete;
     MarkdownDocument& operator=(MarkdownDocument&& mdoc) noexcept;
 
     ~MarkdownDocument();
